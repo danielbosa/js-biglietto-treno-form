@@ -29,27 +29,15 @@ let elButton = document.querySelector('.btn.btn-danger');
 elButton.addEventListener('click', function(){
     let age = elAge.value;
     let distance = elDistance.value;
-    if (age < 18){
+    if (age === '0-17'){
         finalCost = priceUnder18 * distance
-        } else if (age >= 65){
+        } else if (age === '65'){
            finalCost = priceOver65 * distance
         } else {
             finalCost = price * distance
     };
     ticketEl.innerHTML = `€ ${finalCost.toFixed(2)}`;
 })
-
-
-
-
-// console.log(age);
-// console.log(distance);
-
-
-
-// console.log(finalCost.toFixed(2));
-
-// 
 
 // distance 10
 // age < 18 === 1.68000001
