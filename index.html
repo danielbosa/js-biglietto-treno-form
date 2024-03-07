@@ -11,55 +11,60 @@
 </head>
 
 <body>
+    <h1 class="text-uppercase text-center my-4">Stima il tuo biglietto</h1>
     <div class="container">
-        <h1 class="text-uppercase my-4">Stima il tuo biglietto</h1>
-        <div class="bg-danger"> 
-            <div class="my-3">
+        <div class="row align-items-end">
+            <div class="col-12 col-lg-4 my-3">
                 <label for="basic-url" class="form-label">Inserisci i tuoi dati</label>
                 <div class="input-group">
-                    <span class="input-group-text" id="basic-addon3">Nome e cognome</span>
-                    <input type="text" class="form-control" id="fullname">
+                    <input type="text" class="form-control" id="fullname" placeholder="Nome e cognome">
                 </div>
             </div>
-            <div class="my-3">
+            <div class="col-12 col-lg-4 my-3">
                 <select class="form-select" id="age">
-                    <option selected>Scegli il range di età</option>
+                    <option selected value="default">Scegli il range di età</option>
                     <option value="0-17">Minorenne</option>
                     <option value="18-64">Maggiorenne</option>
                     <option value="65">Over 65</option>
                 </select>
             </div>
-            <div class="my-3">
+            <div class="col-12 col-lg-4 my-3">
                 <div class="input-group">
-                    <span class="input-group-text" id="basic-addon3">Chilometri da percorrere</span>
-                    <input type="text" class="form-control" id="distance">
+                    <input type="text" class="form-control" id="distance" placeholder="Chilometri da percorrere">
                 </div>
             </div>
-            <button type="button" class="btn btn-danger">Danger</button>
+            <div class="d-flex gap-3 justify-content-center py-3">
+                <button type="button" class="btn btn-danger">Genera biglietto</button>
+                <button type="button" class="btn btn-danger db-btn">Annulla</button>
+            </div>
         </div>
-        <div class="bg-info">
-            <div class="mt-3">
+    </div>   
+    <section class="d-none">
+        <div class="bg-info rounded">
+            <div class="m-4 pt-3">
                 <h2 class="text-uppercase text-center">biglietto</h2>
                 <div class="container">
                     <div class="row">
-                        <div class="col-6">Viaggiatore:</div>
+                        <div class="col-6 fw-bold">Viaggiatore:</div>
                         <div class="col-6" id="traveller"></div>
-                        <div class="col-6">Tipologia:</div>
-                        <div class="col-6" id="type">TYPE</div>
-                        <div class="col-3">Carrozza:</div>
+                        <div class="col-6 fw-bold">Tipologia:</div>
+                        <div class="col-6" id="type"></div>
+                        <div class="col-3 fw-bold">Carrozza:</div>
                         <div class="col-3" id="traincar"></div>
-                        <div class="col-3">Posto:</div>
+                        <div class="col-3 fw-bold">Posto:</div>
                         <div class="col-3" id="seat"></div>
-                        <div class="col-12">Codice:</div>
-                        <div class="col-12" id="ticket-number"></div>
-                        <div class="col-6">Costo:</div>
+                        <div class="col-6 fw-bold">Codice:</div>
+                        <div class="col-6 fw-normal" id="ticket-number"></div>
+                        <div class="col-6 fw-bold">Prezzo:</div>
                         <div class="col-6" id="costo-biglietto"></div>
                     </div>
                 </div>
             </div>
+            <div class="content m-auto">
+                <svg id="barcode"></svg>
+            </div>
         </div>
-    </div>
-
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -68,6 +73,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <!-- <script src="utility.js" type="text/javascript"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.3/JsBarcode.all.min.js"></script>
     <script src="script.js" type="text/javascript"></script>
 </body>
 

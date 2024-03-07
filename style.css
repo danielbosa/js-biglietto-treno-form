@@ -1,0 +1,19 @@
+.btn-danger.db-btn{
+    --bs-btn-color:  #dc3545;
+    --bs-btn-bg: #fff;
+    --bs-btn-border-color: #dc3545;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #746667;
+    --bs-btn-hover-border-color: #000000;
+}
+
+ /*********/
+.content{
+    width: 350px;
+    background-color: #ffffff00;
+    text-align: center;
+}
+
+#barcode{
+    width: 300px;
+}
