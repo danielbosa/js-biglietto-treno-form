@@ -14,29 +14,69 @@
 const price = 0.21;
 const discountUnder18 = 0.2;
 const discountOver65 = 0.4;
+const charactersAll ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+const charactersUppercase = 'ABCD';
+
 let priceUnder18 = price * (1 - discountUnder18);
 let priceOver65 = price * (1 - discountOver65);
 let finalCost;
 
-// let age = parseInt(prompt('Quanti anni hai?'));
-// let distance = parseInt(prompt('Quanti chilometri vuoi percorrere?'));
-
+let elFullname = document.getElementById('fullname');
 let elAge = document.getElementById('age');
 let elDistance = document.getElementById('distance');
 let ticketEl = document.getElementById('costo-biglietto');
 let elButton = document.querySelector('.btn.btn-danger');
+let elTraveller = document.getElementById('traveller');
+let elType = document.getElementById('type');
+let elTraincar = document.getElementById('traincar');
+let elSeat = document.getElementById('seat');
+let elTicketNumber = document.getElementById('ticket-number');
+
+// number of traincar
+function RndNumberGen(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+};
+// number of ticket
+function ticketNumberGen(length) {
+    let result = ' ';
+    const charactersLength = charactersAll.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += charactersAll.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+};
+// letter of seat
+function seatRndGen(length) {
+     let result =' ';
+     const charactersLength = charactersUppercase.length;
+     for ( let i = 0; i < length; i++ ){
+        result += charactersUppercase.charAt(Math.floor(Math.random() * charactersLength));
+
+        return result;
+     }
+};
+
+
+console.log(elType);
+console.log(elTraveller);
 
 elButton.addEventListener('click', function(){
-    let age = elAge.value;
+    let age = elAge.value; 
     let distance = elDistance.value;
     if (age === '0-17'){
-        finalCost = priceUnder18 * distance
+        finalCost = priceUnder18 * distance;
+        elType.innerHTML = `Biglietto ridotto under18`;
         } else if (age === '65'){
            finalCost = priceOver65 * distance
         } else {
             finalCost = price * distance
     };
     ticketEl.innerHTML = `€ ${finalCost.toFixed(2)}`;
+    elTraveller.innerHTML = `${elFullname.value}`;
+    elTraincar.innerHTML = RndNumberGen(1, 25);
+    elSeat.innerHTML = RndNumberGen(1,30) + seatRndGen(1);
+    elTicketNumber.innerHTML = ticketNumberGen(10);
+
 })
 
 // distance 10
